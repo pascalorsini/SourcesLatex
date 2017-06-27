@@ -1,0 +1,91 @@
+\section{Le cycle de vie d'une application}
+
+Le cycle de vie d'un logiciel est constitué de différentes phases:
+\begin{itemize}  
+\item Spécification générale de l'application
+\item Spécification fonctionnelle 
+\item Spécification technique 
+\item Développement 
+\item Intégration 
+\item Mise en production 
+\item Maintenance 
+\end{itemize}
+\medbreak
+
+La spécification générale est la première étape du cycle de vie du logiciel. C'est durant cette étape que seront définis les besoins auxquels l'application devra répondre. Cette phase est principalement réalisée par le métier qui sera en charge d'effectuer le premier cadrage du logiciel. \newline 
+La seconde phase, l'écriture des spécifications fonctionnelles, aura pour but de définir la partie fonctionnelle de l'application. Il s'agit d'une description précise des fonctionnalités de l'application, elle explicite la manière avec laquelle cette dernière répondra aux besoins du métier. C'est durant cette phase que sera seront spécifiés les différents workflow d'utilisation du logiciel par les utilisateurs ainsi que les différentes interfaces qui seront implémentées. \newline
+La spécification technique décrit le fonctionnement de l'application d'un point de vue technique: architecture, infrastructure ou encore gestion des données utilisées. C'est durant cette phase que sera effectué le choix de l'ensemble des outils de couvrir l'ensemble du cycle de vie de l'application, de la création jusqu'à sa mise en production. 
+\newline
+La phase de développement est la phase pendant laquelle l'application est codée par la maîtrise d'oeuvre. Durant cette phase, l'AMOA suit le travail de la MOE afin de veiller à ce que l'application réponde de manière précise au besoin du client. \newline
+L'intégration demeure la phase durant laquelle les différents composants de l'application sont rassemblés les uns avec les autres dans le but d'effectuer la vérification du bon fonctionnement de l'ensemble. \newline
+La mise en production est la phase où l'application est mise à la disposition du client. L'application sera alors en phase de maintenance, phase durant laquelle sera assuré le maintien de l'application en condition opérationnelle. En effet, après une mise en production, une application connaîtra régulièrement des mises à jour en fonction des retours du client mais aussi pour correspondre à des évolutions des besoin pouvant subvenir ultérieurement. \medbreak
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.65]{cyclevie.png}}
+\caption{Le cycle de vie d'une application}
+\end{figure} 
+
+
+Ces phases peuvent nécessiter des allers-retours entre elles car les besoins métiers peuvent évoluer et nécessiter une mise à jour des spécifications réalisées jusqu'alors. De plus, il est possible qu'une application soit livrée par lot, certaines fonctionnalités deviennent alors accessibles au fur et à mesure des livraisons. Dans ce cas, certaines étapes peuvent être effectuées en parallèle. Par exemple, la spécification fonctionnelle du lot 2 est réalisée pendant que le lot 1 est en phase de développement.
+
+\section{La recette fonctionnelle}
+
+La réalisation de la recette fonctionnelle est basée sur l'ensemble des spécifications fonctionnelles rédigées par l'assistance à maitrise d'ouvrage. Il s'agit de procéder à l'intégralité des tests d'acceptation utilisateur afin de s'assurer que l'ensemble des fonctionnalités livrées sont en adéquation avec ce qui est défini par le métier au sein des spécifications globales de l'application. Chacun des cas d'utilisation du logiciel doit donc être couvert par la recette fonctionnelle. Il s'agit d'une étape extrêment importante car le coût généré par la correction d'une erreur d'exigence pour une entreprise peut être de 50 à 200 fois supérieur si celle-ci est effectuée lors de la maintenance de l'application que si elle avait eu lieu lors de la phase de développement\cite{1}. \newline
+
+\subsection{L'environnement de recette}
+Tout au long du développement d'une application, celle-ci se trouve distribuée au sein de plusieurs environnements. Généralement, c'est autour de cinq environnements que la distribution de l'application s'opère:
+\medbreak
+
+\begin{itemize}  
+\item Développement 
+\item Intégration 
+\item Recette 
+\item Pré-production
+\item Production  
+\end{itemize}
+
+\medbreak
+L'environnement développement est celui sur lequel s'effectue directement le développement. C'est au sein de cet environnement que travaillent principalement les différents développeurs. L'environnement intégration est celui au sein duquel les différents composants de l'application sont assemblés. L'environnement recette est celui où est publiée la livraison d'une mise à jour afin de la mettre à disposition de l'AMOA qui pourra alors effectuer les tests fonctionnels et de non-regression. C'est au sein de cet environnement que l'on pourra donc valider, ou non, une livraison logicielle. L'environnement de pré-production est similaire à l'environnement recette sauf que l'architecture serveur de cet environnement est identique à l'architecture de l'environnement de production afin de reproduire le comportement exact de l'application utilisée par le client. Enfin, l'environnement de production est l'environnement au sein duquel l'application est accessible aux utilisateurs. La livraison sur cet environnement demeure l'étape finale de la livraison d'une mise à jour. 
+\medbreak
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.50]{environnements.png}}
+\caption{Les environnements utilisés pour le développement d'une application}
+\end{figure} 
+\medbreak
+
+
+\subsection{Les cahiers de recettes}
+Pour effectuer des tests d'acceptation et de non-régression, il est impératif de procéder à l'établissement de cahiers de recettes. La recette de chacune des mises à jour permettra de détecter les régressions. Celle-ci s'effectuera sur l'environnement de recette. Chaque début de phase de tests commence par la lecture de la spécification associée à la fonctionnalité à tester ainsi qu'à la prise de connaissance du cahier de recette associé. Bien comprendre les spécifications est indispensable au bon déroulement de la recette car cela permet de clairement connaître le comportement à attendre de l'application et d'être certain de bien identifier les erreurs. En outre, lorsqu'ils sont effectués avant une première livraison de fonctionnalité, les tests d'acceptation permettent de s'assurer que l'application développée respecte bien les informations comprises au sein des spécifications fonctionnelles écrites par l'AMOA. \medbreak
+Les tests d'acceptation nécessitent de se positionner en tant qu'utilisateur de l'application et dérouler les scénarios d'utilisation du logiciel décrit dans le cahier de recette. Il est important de mettre à jour ces mêmes cahiers lors de chaque livraison de nouvelles fonctionnalités car celles-ci devront être à leur tour testées lors de livraisons ultérieures. Chacun des scénarios de test doit permettre de vérifier que l'application adopte le comportement décrit au sein des spécifications. La structure des cahiers de recette est la suivante: 
+\medbreak
+\begin{itemize}  
+\item Cas de test  
+\item Action à effectuer 
+\item Résultat attendu
+\item Résultat obtenu  
+\end{itemize}
+\medbreak
+Le cas de test désigne le contenu du test qui va être réalisé, c'est-à-dire la fonctionnalité qui va être testée. Il existe deux types de cas de tests, les cas de tests passants, qui désignent des tests qui doivent se révéler positifs pour être considérés comme réussi ou bien les cas de tests non-passants qui doivent, eux, échouer. Ces derniers concernent par exemple le cas d'une situation qui ne doit pas être possible, comme l'accès à certaines données, ou la possibilité d'effectuer une action qui ne doit pas être réalisable au sein de l'application.  \medbreak
+L'action à effectuer explique les différentes étapes à réaliser afin d'exécuter le test, les prérequis nécessaires, les données à renseigner au sein de l'application ou encore d'être connecté avec un utilisateur ayant, ou non, les droits pour utiliser la fonctionnalité en question. Le résultat attendu est le comportement que l'on attend de l'application suite à l'action effectuée. Si le comportement est conforme aux attentes, le résultat obtenu sera considéré comme positif, si le comportement est contraire, il sera considéré comme négatif.    \medbreak
+
+\subsection{L'automatisation de la recette fonctionnelle}
+Selon Børge Haugset et Geir Kjetil Hanssen \cite{2}, effectuer manuellement les tests d'acceptation constitue une tâche fastidieuse, coûteuse et consommant beaucoup de temps. L'automatisation de ces tests peut donc sembler être une initiative prometteuse pour faciliter et améliorer ce processus.
+Néanmoins, l'automatisation des tests peut nécessiter 3 à 10 fois le temps nécessaire à la création et à l'exécution d'un test manuel \cite{3}. Ainsi, sur un très court terme, il s'agit effectivement d'un très fort coût à supporter pour l'entreprise, car la mise en place de tests automatisés nécessite beaucoup de temps pour être mise en place. Cependant, si ces tests automatisés sont réutilisables sur une longue durée, cet investissement initial peut permettre d'économiser les coûts pour une entreprise à long terme. C'est pourquoi il demeure important de déterminer les tests qui méritent d'être automatisés \cite{4}. Un autre avantage de l'automatisation de la recette fonctionnelle réside dans le fait que celle-ci peut être effectuée avec une fréquence d'exécution largement supérieure car elle peut être lancée à chaque instant \cite{5}. En outre, l'automatisation des cas de tests engendre une réelle fiabilité car, une fois les test validés, ils ne peuvent pas échouer. Si un échec est rencontré, il est obligatoirement dû à une regression ou une anomalie au sein de l'application.
+
+\section{L'intégration continue au service de la recette fonctionnelle}
+L'intégration continue consiste en un ensemble de pratiques en vigueur au sein du processus de développement d'une application visant à s'assurer que chacune des modifications effectuées au sein du code source n'est pas à l'origine de régression au sein de celle-ci. Cet ensemble de pratiques d'ingénierie logicielle va permettre d'accélérer la livraison des applications en réduisant les temps d'intégration \cite{6}. Pour ce faire, l'intégration continue repose sur trois points clés \cite{7}:
+
+\begin{itemize}  
+\item La centralisation: l'intégralité du code est centralisé sur le serveur d'intégration continue.
+\item L'automatisation: les builds, les déploiement ainsi que les tests sont effectués automatiquemment.
+\item L'historisation: les anciennes versions sont stockées et accessibles sur le serveur, permettant ainsi de comparer les évolutions de l'application.
+\end{itemize}
+\medbreak
+
+Un des enjeux de l'intégration continue est similaire à un enjeux de la recette fonctionnelle: être informé en cas d'anomalie présente ou de regression survenue au sein de l'application. La recette étant effectuée par l'AMOA et l'intégration continue par la MOE, il peut ainsi s'avérer intéressant pour une entreprise de lier le travail des deux corps de métier en intégrant la recette fonctionnelle au sein de l'intégration continue. En effet, ce lien permettrait à la MOE de détecter rapidement les regressions fonctionnelles lors de chacuns des builds automatisés effectués via le serveur d'intégration continue.
+
+\section{Les enjeux de la recette fonctionnelle}
+
+Effectuer une recette complète sur l'environnement de recette ou de pré-production est impératif avant chaque livraison de fonctionnalité ou de mise à jour effectuée sur l'environnement de production. Si ces dernières ont lieu régulièrement, la recette peut nécessiter une charge de travail conséquente. Cette étape demeurant incontournable lors de la livraison d'une application, par quels moyens peut-on améliorer son déroulement ainsi que son efficacité? Comment intégrer cette étape clé du processus de livraison au sein de l'intégration continue mise en place par les équipes de développement? \newline
+ \medbreak

@@ -1,0 +1,130 @@
+Il existe actuellement un grand nombre d'applications permettant d'effectuer des tests fonctionnels basés sur l'interface utilisateur. Chacun d'entre eux dispose d'avantages et d'inconvénients en fonction de l'utilisation souhaitée. La grande force de ces applications demeure dans le fait qu'elles sont capables de simuler les actions d'un utilisateur sur une application afin de vérifier son bon fonctionnement. Ainsi, elles permettent de détecter les régressions fonctionnelles de manière automatique et sans intervention humaine une fois que les tests ont été mis en place. Elles peuvent aisément être à l'origine de gain de temps au sein du cycle de développement d'une application car elles détectent immédiatement les régressions suite à une livraison. \medbreak
+
+En outre, l'utilisation d'un outil d'intégration continue est devenue au fil du temps un élément clé au sein du processus de développement logiciel. L'objectif de l'intégration continue est de s'assurer que chaque modification effectuée au sein du code de l'application n'est pas source de regression ou d'erreurs (lors du build de l'application, de son déploiement ou bien lors de l'exécution de tests par exemple). 
+
+\section{Les outils d'automatisation des tests}
+\subsection{Selenium IDE}
+
+
+Selenium IDE est une extension pour le navigateur web Mozilla Firefox permettant d'exécuter des scripts Selenium \cite{8}. Il permet de procéder à l'enregistrement et la création de scripts permettant d'effectuer des tests fonctionnels sur une application web. Le principe de fonctionnement est extrêmement simple, Selenium IDE récupère les XPath des éléments qui composent une page web et utilise ces élements selon le souhait de l'utilisateur lors de l'écriture du script. \medbreak
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.70]{seleniumLogo.png}}
+\caption{Selenium IDE}
+\end{figure} 
+
+Selenium IDE est très simple à prendre en main grâce à sa fonction enregistreur qui consiste à enregistrer les actions effectuées par la souris et le clavier de l'utilisateur. Ces tests peuvent également être créés à l'aide de commandes incluses au sein de l'application qui permettent de simuler le comportement d'un utilisateur avec l'application. En effet, la fonction d'enregistrement atteint vite ses limites car on ne peut pas simuler l'attente du chargement d'un élément de la page, Selenium déclarant le test echoué dès lors qu'il ne trouve pas un élément, un chargement un peu long dû à une lenteur sur un serveur aura comme effet de faire échouer le test. Ainsi, l'insertion d'une commande "WaitForElementPresent" permettra d'informer Selenium que celui-ci doit attendre que l'élément soit chargé par l'application afin de continuer la simulation du comportement utilisateur, chose impossible un utilisant uniquement la fonction enregistreur d'événements. Les scripts Selenium IDE peuvent également être écrits en Java, C\# ou Python.
+\newline
+Autre fonctionnalité intéressante de Selenium, celui-ci dispose d'un outil de planification de l'éxecution automatique des tests. Ainsi, ces derniers peuvent s'exécuter automatiquement à la date et l'heure choisie par l'utilisateur avec la possibilité d'implémenter une récurrence pour l'exécution des tests.\newline
+\newpage
+
+Exemple de commandes proposées par Selenium :\newline \medbreak
+\begin{tabular}{|p{6,2cm}|p{6,2cm}|}
+
+  \hline
+  Commande & Description  \\
+  \hline
+  open & Ouvre un URL dans la fenêtre du navigateur en cours  \\ \hline
+  waitForElementPresent & Attend qu'un élément HTML soit présent dans la page. Permet de vérifier que la page est chargée avec l'élément désiré \\ \hline
+  click & Simule un clic sur un élément HTML   \\ \hline
+  assertText & Vérifie la présence d'une chaine de caractère \\ \hline
+  select &  Sélectionne un élément dans une liste    \\ \hline
+  pause & Met le test en pause selon une durée choisie  \\ \hline
+  close & Ferme un onglet  \\ \hline
+  store & Permet de stocker une valeur au sein d'une variable  \\ 
+  \hline
+\end{tabular}
+\medbreak \medbreak
+Ces commandes sont regroupées au sein d'un script qui sera le test exécuté: \newline\medbreak
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
+  \hline
+  Commande & Cible de l'application  & Valeur \\ 
+  \hline
+  open & Url de l'application &  \\ \hline
+  waitForElementPresent & XPath de l'élement & XPath de l'élement \\ \hline
+  click  & XPath de l'élement &  \\ \hline
+  assertText & XPath de l'élement & Texte qui doit être trouvé \\
+  \hline
+\end{tabular}
+\medbreak
+\medbreak
+Selenium IDE est donc un outil très simple à utiliser mais qui souffre d'un défaut majeur, il n'arrive pas à travailler avec les pages web dynamiques créées avec Javascript ou Ajax. Par exemple, une application javascript monopage posera de serieux problèmes à Selenium car celui-ci peut confondre deux élements pourtant différents visuellement pour l'utilisateur, mais avec des similarités au niveau du code source exploité par Selenium.
+\medbreak
+
+Il existe une seconde version de Selenium, Selenium WebDriver. Cette version est une API Java qui présente l'avantage de pouvoir utiliser des listeners ou bien d'effectuer des tests sur des applications mobile. L'utilisation de la fonction d'enregistrement est par contre inutilisable avec cette version.
+
+\subsection{Sikuli}
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.40]{sikuliLogo.png}}
+\caption{Sikuli}
+\end{figure} 
+
+Sikuli est une application permettant d'automatiser des actions sur l'interface graphique d'un ordinateur. Contrairement à Selenium qui n'interagit qu'avec un navigateur web, Sikuli est capable d'agir sur l'intégralité du système \cite{9}. En effet, il peut effectuer des tâches telles que le lancement d'une application par exemple la ou Selenium nécessite d'avoir le navigateur déjà lancé et se limite aux tests sur ce navigateur.\medbreak
+Le fonctionnement de Sikuli est assez similaire à celui de Selenium IDE, la principale différence réside dans le fait de sélectionner des images pour alimenter les scripts. En effet, la barre d'outil de l'IDE contient un bouton "Prendre une capture d'écran" qui permet à l'utilisateur de sélectionner un élément de l'application sur lequel Sikuli agira.\medbreak
+Tout comme Selenium IDE, il est possible de créer des script Sikuli à l'aide de langage de programmation tel que Python, Ruby ou encore Java. En revanche, il ne dispose pas de fonction permettant de planifier l'exécution des tests.
+
+
+\subsection{Kantu Web Automation}
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=1]{kantuLogo.png}}
+\caption{Kantu Web Automation}
+\end{figure} 
+
+
+Kantu Web Automation est une solution qui constitue un serieux concurrent de Selenium IDE et de Sikuli. Il s'agit d'une application basée sur les images, à l'instar de Sikuli, mais aussi des actions de l'utilisateur, à l'instar de Selenium IDE. \cite{10} \medbreak 
+Tout comme ces deux applications, il est possible de créer des scripts dans différents langages tels que Java, C\# ou encore Python mais cela nécessite l'achat de la version payante de l'application. En effet, la version gratuite offre uniquement la possibilité d'utiliser la fonction enregistrement ou bien d'insérer les commandes manuellement une à une. Kantu Web Automation demeure donc une alternative intéressante mais peut s'avérer limité sans acquérir la version payante. 
+
+
+\subsection{Sahi}
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.95]{sahiLogo.png}}
+\caption{Sahi}
+\end{figure} 
+
+Sahi est un outil disponible en deux versions, une est open source et gratuite, l'autre payante et propriétaire. La version gratuite est assez similaire à ce que propose la concurrence de par les fonctionnalités proposées. La version payante de Sahi se différencie des autres outils en proposant aux utilisateurs la possibilité d'éxecuter différents tests en parralèlle sur différents navigateurs, le stockage des résultats des tests effectués au sein d'une base de données afin de pouvoir effectuer un suivi des résultats obtenus mais aussi un framework Excel \cite{11}. \medbreak
+Ce framework est une des principales forces de Sahi. Celui-ci permet en effet d'écrire des cas de tests en renseignant simplement un tableau dans un document Excel. Ainsi, il demeure très simple pour un non initié de mettre en place une automatisation des tests avec cet outil et l'intégralité des tests rédigés peuvent être stockés au sein d'un document Excel. Les tests doivent être renseignés dans un tableau contenant au minimum trois colonnes: TestCase, Keyword et Argument, chaque ligne du tableau constituera une action à effectuer par l'outil. La colonne TestCase est renseignée afin de spécifier le début d'un cas de test, elle n'est utilisée que si le tableau contient plusieurs cas de test et comporte uniquement le nom du cas de test en question. La colonne Keyword contient l'action à effectuer par Sahi au sein de l'application. La colonne Argument contient des données qui doivent être utilisées si besoin est, comme par exemple une valeur à renseigner ou à sauvegarder. Il est possible d'ajouter plusieurs colonnes d'argument au sein du tableau Excel.
+
+\subsection{HP - Unified Functional Testing}
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.50]{hpuftLogo.png}}
+\caption{HP - Unified Functional Testing}
+\end{figure} 
+
+HP - Unified Functional Testing est le logiciel d'automatisation de tests d'acceptation fourni par la société américaine Hewlett-Packard \cite{12}. Il s'agit d'un outil extrêmement complet, permettant d'effectuer des tests sur les applications web mais aussi sur les smartphones Android, Windows Mobile et iOS. Ces tests peuvent également être effectués en parallèle à travers différents navigateurs pour la version web de l'application développée mais aussi entre la version web et la version mobile de l'application, que cette dernière soit native ou non. En outre, HP - Unified Functional Testing peut aussi effectuer des tests directement au sein des principaux ERP tel que SAP ou des CRM comme Salesforce par exemple. Il peut donc être utilisé pour effectuer des tests d'acceptation ou de non-regression sur un panel plus large d'applications. \newline
+HP - Unified Functional Testing demeure une solution complète mais onéreuse. En effet, l'outil peut coûter plus de 2000€ par an et par poste utilisateur ce qui peut diriger les entreprises vers des alternatives gratuites ou au prix moins élevé.
+
+\section{Les outils d'intégration continue}
+
+De nombreux outils d'intégration continue sont disponibles sur le marché. Parmis eux, on peut notamment citer Jenkins, Travis CI, Bamboo ou encore Circle CI. Les outils d'intégration continue sont installés sur des serveurs et permettent d'effecuter l'automatisation de tâches telles que le déploiement, le build ou encore le test d'une application. \medbreak 
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.60]{integLogo.png}}
+\caption{Des nombreux outils d'intégration continue sont disponibles sur le marché}
+\end{figure} 
+
+Jenkins est un outil d'intégration continue open-source orienté projet Java \cite{13}. Jenkins est un fork, c'est à dire une nouvelle application créée à partir du code source d'une autre application, de l'outil Hudson. Ce dernier constitue un outil similaire à Jenkins mais n'est pas open-source, il appartient en effet à l'entreprise Oracle. La dernière version stable publié de Jenkins date du 26 Avril 2016, l'outil demeure mis à jour de manière régulière. C'est lors de la sortie de la version 2.0 en 2016 que Jenkins intègre le pipeline as code en son sein. \medbreak
+Bambou est l'outil d'intégration continue développé par la société Atlassian. Cette société est aussi connue pour la réalisation des applications Jira, Bitbucket ou encore Trello \cite{14}. Ainsi, Bamboo est conçu pour fonctionner en parfaite harmonie avec les autres logiciels fourni par Atlassian. Il présente ainsi l'avantage de pouvoir parfaitement fonctionner avec une suite logicielle complète. \medbreak
+Travis CI est un concurrent de Jenkins ou Bamboo conçu pour fonctionner avec le service d'hébergement de code en ligne et de contrôle de version Github \cite{15}. Son fonctionnement est basé sur la configuration du fichier travis.yml. C'est en effet au sein de ce fichier, qui doit être placé à la racine du projet, que sera spécifié le langage de programmation utilisé afin de développer l'application ou encore les configurations concernant le build et le déploiement du logiciel. Travis CI constitue, tout comme d'autres outils tels que Circle CI \cite{16}, un outil d'intégration continue fonctionnant entièrement en ligne via le cloud. En effet, contrairement à des solutions comme Jenkins où Bamboo, il ne nécessite aucun serveur pour fonctionner. Cette solution présente l'avantage de ne pas avoir à gérer les infrastructures serveurs nécessaires au fonctionnement des outils d'intégration continue, qui s'avèrent de plus assez lourd en matière de consommation de resssources pour les machines. Cependant, on y perd en possibilité de configuration en n'étant plus maître des machines sur lequelles l'outil d'intégration continue est installé. \medbreak
+De nombreux autres outils existent, tels que TeamCity, l'outil d'intégration de JetBrain qui fourni également l'IDE IntelliJ IDEA, afin de pallier aux besoin des développeurs. Chacun d'entre eux présente ses avantages, meilleur fonctionnement avec un langage de programmation en particulier par exemple, et inconvénients tels que la lourdeur de l'application ou encore compléxité d'installation ou de configuration.
+
+\section{Les pipelines de déploiement}
+\subsection{Les pipelines au sein de l'intégration continue}
+
+Un pipeline est une séquence d'étapes automatisées partant du build de l'application jusqu'à la livraison de celle-ci \cite{17}. L'ensemble des étapes doivent y être présentes afin de garantir une livraison efficace. \newline
+L'utilisation d'un pipeline permet d'optimiser l'exécution des différents jobs au sein de l'outil d'intégration continue. En effet, ceux-ci se retrouvent présents au sein d'un pipeline qui comprendra l'ensemble des étapes nécessaires et aucune intervention manuelle ne sera à effectuer. Les pipelines permettent en outre de gérer des lancements en parallèles ou bien d'exécuter des tâches si besoin. En outre, Jenkins propose de visualiser graphiquement l'état de chacunes des étapes du pipeline après leur exécution ainsi que le temps moyen qui aura été nécessaire pour effectuer l'opération. Cette visualisation graphique permet donc de gagner en visibilité pour les utilisateurs quant à l'état du projet.\medbreak
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.60]{vueStage.png}}
+\caption{Exemple de vue de l'état des étapes en temps réel}
+\end{figure} 
+
+
+\subsection{Le pipeline as code}
+Directement intégré au sein de l'outil de déploiement continu, le pipeline as code permet de créer des scripts qui spécifieront l'ordre d'enchainement des étapes effectuées au sein du déploiement continu \cite{18}. Ce script sera inséré au sein d'un Jenkinsfile qui demeure un fichier texte contenant la définition du pipeline Jenkins. Il est présent au sein du serveur Jenkins est doit être accessible à toute la MOE car il s'agit de l'unique source de description du pipeline utilisé au sein du projet. Le contenu du Jenkinsfile est écrit en Groovy, un langage de script orienté Java. \medbreak
+
+\begin{figure}[!h] 
+\centerline{\includegraphics[scale=0.50]{pipelineCodeImg.png}}
+\caption{Exemple de script de pipeline}
+\end{figure} 
+
+Le script est divisé en différentes parties appellées "Stage" qui désignent les étapes importantes du déroulement du script. Un stage peut être par exemple le build de l'application ou bien le déploiement de l'application. A l'intérieur de ces stages peut se trouver différentes étapes, appelées "Steps" à effectuer au sein du stage. Le script peut également contenir des commandes, par exemple la commande "sh" qui permet de lancer des scripts lors de l'éxecution du pipeline, ou encore des conditions afin de diriger le déroulement des étapes contenues au sein du pipeline.\medbreak 

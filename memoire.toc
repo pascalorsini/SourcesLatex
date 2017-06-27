@@ -1,0 +1,33 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Contexte et probl\'ematique}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Le cycle de vie d'une application}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}La recette fonctionnelle}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}L'environnement de recette}{9}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Les cahiers de recettes}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}L'automatisation de la recette fonctionnelle}{11}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}L'int\'egration continue au service de la recette fonctionnelle}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Les enjeux de la recette fonctionnelle}{13}{section.2.4}
+\contentsline {chapter}{\numberline {3}\'Etat de l'art}{14}{chapter.3}
+\contentsline {section}{\numberline {3.1}Les outils d'automatisation des tests}{14}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Selenium IDE}{14}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Sikuli}{17}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Kantu Web Automation}{17}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Sahi}{18}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}HP - Unified Functional Testing}{19}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Les outils d'int\'egration continue}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}Les pipelines de d\'eploiement}{21}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Les pipelines au sein de l'int\'egration continue}{21}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Le pipeline as code}{22}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Proposition}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Am\'elioration de la recette fonctionnelle d'une application}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}Tests automatis\'es et int\'egration continue}{24}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Mise en place des tests automatis\'es avec Selenium}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Int\'egration de Selenium au sein de Jenkins}{25}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Int\'egration des tests au sein du pipeline}{25}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Limites de l'automatisation des tests d'acceptation}{26}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Une d\'emarche co\^uteuse \`a\IeC {\nobreakspace }mettre en place}{26}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Le probl\`eme des changements dans l'interface}{27}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}L'obligation de suivre les mises \`a jour des fonctionnalit\'es}{27}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Seule une \'ecriture tardive demeure possible}{27}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{29}{chapter.5}

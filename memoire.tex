@@ -1,0 +1,83 @@
+\documentclass[12pt,a4wide]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+
+\def\TitreMemoire{
+
+
+   Automatisation des tests d'acceptation et intégration continue: une solution pour répondre aux enjeux de l'optimisation de la recette fonctionnelle d'une application
+
+}
+\def\AuteurMemoire{Pascal Orsini}
+\def\Master{Master MIAGE}
+
+\def\Universite{Université Paris-Ouest Nanterre-La Défense}
+\def\Annee{Année Universitaire 2016-2017}
+
+\def\Enseignant{Mémoire encadré par le Pr. Reda Bendraou}
+
+
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=black,
+citecolor=blue,
+filecolor=blue,
+urlcolor=blue
+}
+%\usepackage{fontspec}
+%\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\usepackage{libertine}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+\vspace{2cm}
+\hrule
+\vspace{.5cm}
+{\LARGE\textbf{\TitreMemoire}}\\
+\vspace{.5cm}
+\hrule
+\vspace{1cm}
+{\Large \AuteurMemoire}\\
+\vspace{0,5cm}
+{\Large \Master}\\
+\vspace{0,5cm}
+{\Large \Enseignant}\\
+\vspace{8cm}
+{\Large \Annee}\\
+\vspace{0,5cm}
+{\Large \Universite}\\
+\vfill
+\vspace{2cm}
+\end{center}
+\newpage
+
+\input{remerciements}
+
+
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+\input{introduction}
+
+\chapter{Contexte et problématique}
+\input{problematique}
+
+\chapter{\'Etat de l'art}
+\input{etatdelart}
+
+\chapter{Proposition}
+\input{proposition}
+
+\chapter{Conclusion}
+\input{conclusion}
+
+\input{bibliographie}
+
+
+\end{document}
